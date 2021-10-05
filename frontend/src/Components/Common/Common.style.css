@@ -1,0 +1,21 @@
+.container {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+.container a {
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    font-family: "Operator Mono";
+    padding: 10px;
+    border-radius: 20px;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+}
+
+.container a:hover {
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+}
