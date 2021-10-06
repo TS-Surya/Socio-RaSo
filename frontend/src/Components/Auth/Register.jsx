@@ -3,6 +3,8 @@ import { register } from "../../API/Auth/AuthApi";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
+import "./Auth.style.css";
+
 function Register() {
   const [message, setMessage] = useState("");
   const history = useHistory();
@@ -20,7 +22,7 @@ function Register() {
   };
 
   return (
-    <div>
+    <div className="login">
       <h1>Register</h1>
 
       <div className="form_">

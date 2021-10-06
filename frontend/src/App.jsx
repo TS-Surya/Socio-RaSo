@@ -12,13 +12,15 @@ import "./styles/Global.style.css";
 
 export default function App() {
   const [userData, setUserData] = useState({});
+  const [loggedin, setUserLoggedin] = useState(false);
+
   const providerValue = useMemo(
-    () => ({ userData, setUserData }),
-    [userData, setUserData]
+    () => ({ userData, setUserData, loggedin, setUserLoggedin }),
+    [userData, setUserData, loggedin, setUserLoggedin]
   );
 
   return (
-    <div>
+    <div className="container">
       <Router>
         <Switch>
           <Route path="/" exact>
@@ -31,7 +33,7 @@ export default function App() {
             <Route path="/auth/login" exact>
               <Login />
             </Route>
-            <Route path="/users/:username" exact>
+            <Route path="/users/:user" exact>
               <UserHome />
             </Route>
           </UserDataContext.Provider>
