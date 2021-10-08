@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen&display=swap');
+
+:root {
+    --font-family: "Oxygen", sans-serif;
+    --bg: rgb(0, 0, 0);
+}
+
+body {
+    background-color: var(--bg);
+    font-family: var(--font-family);
+    color: white;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.home {
+    padding-top: 20vh;
+    font-size: 1.4em;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.links a {
+    color: white;
+    text-decoration: none;
+    padding: 9px;
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 20px;
+    box-shadow: black 4px 7px 20px;
+}
+
+.links a:hover {
+    background-color: white;
+    color: black;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) .4s;
+    cursor: pointer;
+    border: 2px solid white;
+    transform: scale(1.023);
+}
+
+/* // form //  */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1.5em;
+    padding-top: 10vh;
+}
+
+form input {
+    padding: 3px;
+    height: 30px;
+    width: 300px;
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0);
+    border-top: none;
+    border-left: none;
+    color: white;
+    border-right: none;
+    border-bottom: 2px solid white;
+}
+
+form input:focus {
+    outline: none;
+}
+
+form .field {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.err {
+    color: red;
+    text-align: center;
+    font-size: 19px;
+}
+
+form button {
+    padding: 10px;
+    width: fit-content;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 16px;
+    margin-top: 10px;
+    color: white;
+}
+
+form button:hover {
+    background-color: white;
+    color: black;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) .4s;
+    cursor: pointer;
+    border: 2px solid white;
+    transform: scale(1.023);
+}
