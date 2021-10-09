@@ -1,21 +1,26 @@
 import "./App.css";
-import Home from "./Components/Home";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Login from "./Components/Login";
-import Register from "./Components/Register";
-// import axios from "axios";
-
-import { UserHome, CreatePost, AllPosts } from "./Components/User/index";
-
 import userContext from "./Context/User.context";
 import { useState, useMemo } from "react";
+
+import Home from "./Components/Home";
+import Login from "./Components/Login";
+import Register from "./Components/Register";
+import {
+  UserHome,
+  CreatePost,
+  AllPosts,
+  SinglePost,
+} from "./Components/User/index";
 
 function App() {
   const [user, setUser] = useState({});
   const providervalue = useMemo(() => ({ user, setUser }), [user, setUser]);
 
+  const [singleBlog, setSingleBlog] = useState();
+
   return (
-    <>
+    <div className="main">
       <Router>
         <Switch>
           <Route path="/" exact>
@@ -35,12 +40,15 @@ function App() {
               <CreatePost />
             </Route>
             <Route path={`/blog/:user/allposts`} exact>
-              <AllPosts />
+              <AllPosts single={setSingleBlog} />
+            </Route>
+            <Route path={`/blog/:user/post/:id`} exact>
+              <SinglePost single={singleBlog} />
             </Route>
           </userContext.Provider>
         </Switch>
       </Router>
-    </>
+    </div>
   );
 }
 

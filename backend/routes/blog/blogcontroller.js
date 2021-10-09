@@ -55,9 +55,27 @@ const GetAllPosts = async (req, res) => {
   });
 };
 
+const deletePost = async (req, res) => {
+  console.log(req.body);
+  const { id } = req.body;
+  if (!id)
+    return res.json({
+      message: "Something Went Wrong",
+      ok: false,
+    });
+
+  const blog = await Post.findOneAndDelete({ _id: id });
+
+  return res.json({
+    ok: true,
+    message: "Successfull Deleted",
+  });
+};
+
 const CRUD = {
   CreatePost,
   GetAllPosts,
+  deletePost,
 };
 
 module.exports = CRUD;

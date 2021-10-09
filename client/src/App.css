@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Oxygen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
 :root {
-    --font-family: "Oxygen", sans-serif;
+    --font-family: 'Lobster',
+        "Oxygen",
+        sans-serif;
     --bg: rgb(0, 0, 0);
 }
 
@@ -9,15 +12,20 @@ body {
     background-color: var(--bg);
     font-family: var(--font-family);
     color: white;
-    width: 60%;
+}
+
+.main {
     display: flex;
+    align-items: center;
     justify-content: center;
-    margin: auto;
+    flex-direction: column;
+
 }
 
 .home {
     padding-top: 20vh;
     font-size: 1.4em;
+    text-align: center;
 }
 
 .links {
@@ -55,6 +63,8 @@ form {
     gap: 10px;
     font-size: 1.5em;
     padding-top: 10vh;
+    justify-content: center;
+    align-items: center;
 }
 
 form input {
@@ -68,6 +78,8 @@ form input {
     color: white;
     border-right: none;
     border-bottom: 2px solid white;
+    font-family: var(--font-family);
+
 }
 
 form textarea {
@@ -79,6 +91,8 @@ form textarea {
     color: white;
     padding: 10px;
     font-size: 16px;
+    font-family: var(--font-family);
+
 }
 
 form input:focus {
@@ -116,4 +130,121 @@ form button:hover {
     cursor: pointer;
     border: 2px solid white;
     transform: scale(1.023);
+}
+
+/* // posts // */
+
+.posts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.post {
+    position: relative;
+    width: 80%;
+    max-width: 60%;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 20px;
+    justify-content: center;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.content {
+    padding: 20px;
+}
+
+.post p:first-child {
+    font-size: 40px;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.post p:nth-child(2) {
+    margin: 0;
+    font-size: 24px;
+}
+
+.inner_links {
+    display: flex;
+    gap: 20px;
+    padding: 10px 0px 0px 0px;
+}
+
+.inner_links a:first-child {
+    color: white;
+    text-decoration: none;
+    border: 2px solid rgba(137, 43, 226, 0.781);
+    padding: 10px;
+    border-radius: 15px;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) .4s;
+
+}
+
+.inner_links a:first-child:hover {
+    color: white;
+    text-decoration: none;
+    border: 2px solid black;
+    padding: 10px;
+    background-color: rgba(137, 43, 226, 0.781);
+    border-radius: 20px;
+}
+
+.inner_links a:last-child {
+    color: white;
+    text-decoration: none;
+    border: 2px solid #ff0000b2;
+    padding: 10px;
+    border-radius: 15px;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) .4s;
+}
+
+.inner_links a:last-child:hover {
+    color: white;
+    text-decoration: none;
+    border: 2px solid black;
+    padding: 10px;
+    background-color: #ff0000b2;
+    border-radius: 20px;
+}
+
+/* // single // */
+
+.single {
+    padding: 40px;
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid white;
+    min-width: 60%;
+    max-width: 30px;
+    border-radius: 20px;
+    box-shadow: grey 10px 3px 30px;
+    margin-bottom: 30px;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: first baseline;
+    gap: 20px;
+}
+
+.title span {
+    color: grey;
+}
+
+.single h1 {
+    font-size: 50px;
+    text-transform: capitalize;
+}
+
+.content__ {
+    font-size: 25px;
+    text-transform: capitalize;
 }

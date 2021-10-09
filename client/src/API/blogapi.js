@@ -7,10 +7,12 @@ const api = axios.create({
 
 export const createPost = (url, values) => api.post(url, values);
 export const getAllPosts = (url, values) => api.post(url, values);
+export const deletePost = (url, values) => api.post(url, values);
 
 const apis = {
   createPost,
   getAllPosts,
+  deletePost,
 };
 
 export default apis;
