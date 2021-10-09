@@ -30,6 +30,7 @@ function UserHome() {
         >
           Your Posts
         </Link>
+        <Link to={`/blog/public/posts/allposts`}>Public Posts</Link>
       </div>
     </div>
   );
