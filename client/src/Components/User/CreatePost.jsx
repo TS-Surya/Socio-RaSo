@@ -61,7 +61,7 @@ function CreatePost() {
                 <label htmlFor="content">Content</label>
                 <textarea
                   name="content"
-                  cols="30"
+                  cols="35"
                   rows="14"
                   required
                   ref={content}

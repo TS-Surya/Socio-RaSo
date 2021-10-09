@@ -12,7 +12,7 @@ function UserHome() {
   if (!user) return "Invalid Session";
 
   return (
-    <div>
+    <div className="home">
       <h1>Hello {user.user.username}</h1>
 
       <div className="links">
@@ -28,7 +28,7 @@ function UserHome() {
             .split(" ")[0]
             .toLocaleLowerCase()}/allposts`}
         >
-          ALl Posts
+          Your Posts
         </Link>
       </div>
     </div>

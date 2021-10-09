@@ -25,7 +25,7 @@ function Resister() {
         setMessage(res.data.message);
       })
       .then(() => history.push("/login"))
-      .catch((e) => setMessage.log(e.message));
+      .catch((e) => setMessage(e.message));
   };
 
   return (

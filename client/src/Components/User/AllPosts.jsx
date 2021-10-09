@@ -1,15 +1,20 @@
 import { useContext, useEffect, useState } from "react";
 import useLoggedin from "../../Hooks/useLoggedin";
 import userContext from "../../Context/User.context";
+import { Link } from "react-router-dom";
 
-import { getAllPosts } from "../../API/blogapi";
+import { useHistory } from "react-router-dom";
 
-function AllPosts() {
+import { getAllPosts, deletePost } from "../../API/blogapi";
+
+function AllPosts({ single }) {
   const { setUser, user } = useContext(userContext);
   useLoggedin(setUser);
   const [data, setData] = useState(null);
   const [message, setMessage] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const history = useHistory();
 
   useEffect(() => {
     if (user && !user.ok) return "Invalid Session";
@@ -33,21 +38,78 @@ function AllPosts() {
   }, [user]);
 
   return (
-    <div>
+    <div className="posts">
       <h1>All Posts</h1>
-      <div className="posts">
+      <>
         {!loading &&
           data.map((e, i) => {
             return (
               <div className="post" key={i}>
-                <h3>{e.title}</h3>
-                <h5>{e.author}</h5>
-                <h4>{e.content}</h4>
+                <div className="content">
+                  <p>{e.title}</p>
+                  <p>{e.content}</p>
+                  <div className="inner_links">
+                    <Link
+                      onClick={() => single(e)}
+                      to={`/blog/${
+                        user.user &&
+                        String(user.user.username)
+                          .split(" ")[0]
+                          .toLocaleLowerCase()
+                      }/post/${e._id}`}
+                    >
+                      View
+                    </Link>
+                    <Link
+                      onClick={() => {
+                        deletePost(
+                          `/blog/${
+                            user.user &&
+                            String(user.user.username)
+                              .split(" ")[0]
+                              .toLocaleLowerCase()
+                          }/delete/${e._id}`,
+                          { id: e._id }
+                        ).then((res) => {
+                          if (res.data.ok) {
+                            history.go(0);
+                          }
+                        });
+                      }}
+                      to={`/blog/${
+                        user.user &&
+                        String(user.user.username)
+                          .split(" ")[0]
+                          .toLocaleLowerCase()
+                      }/allposts`}
+                    >
+                      Delete
+                    </Link>
+                  </div>
+                </div>
               </div>
             );
           })}
+      </>
+      <div className="links">
+        <Link
+          to={`/users/${
+            user.user &&
+            String(user.user.username).split(" ")[0].toLocaleLowerCase()
+          }`}
+        >
+          Go to Home
+        </Link>
+        <Link
+          to={`/blog/${
+            user.user &&
+            String(user.user.username).split(" ")[0].toLocaleLowerCase()
+          }/create`}
+        >
+          Add New Post
+        </Link>
+        <div className="err">{message && message}</div>
       </div>
-      <div className="err">{message && message}</div>
     </div>
   );
 }
