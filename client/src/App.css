@@ -60,7 +60,7 @@ form {
 form input {
     padding: 3px;
     height: 30px;
-    width: 300px;
+    width: 400px;
     font-size: 16px;
     background-color: rgba(0, 0, 0, 0);
     border-top: none;
@@ -68,6 +68,17 @@ form input {
     color: white;
     border-right: none;
     border-bottom: 2px solid white;
+}
+
+form textarea {
+    background-color: black;
+    outline: none;
+    border: 2px solid white;
+    resize: none;
+    border-radius: 15px;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
 }
 
 form input:focus {

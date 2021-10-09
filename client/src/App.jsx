@@ -5,7 +5,7 @@ import Login from "./Components/Login";
 import Register from "./Components/Register";
 // import axios from "axios";
 
-import UserHome from "./Components/User/UserHome";
+import { UserHome, CreatePost, AllPosts } from "./Components/User/index";
 
 import userContext from "./Context/User.context";
 import { useState, useMemo } from "react";
@@ -30,6 +30,12 @@ function App() {
             </Route>
             <Route path={`/users/:user`} exact>
               <UserHome />
+            </Route>
+            <Route path={`/blog/:user/create`} exact>
+              <CreatePost />
+            </Route>
+            <Route path={`/blog/:user/allposts`} exact>
+              <AllPosts />
             </Route>
           </userContext.Provider>
         </Switch>
