@@ -1,6 +1,6 @@
 const Post = require("../../model/post");
 
-const CreatePost = async (req, res) => {
+const createPost = async (req, res) => {
   const { author, title, content, authorID } = req.body;
 
   if (!author || !authorID)
@@ -29,9 +29,9 @@ const CreatePost = async (req, res) => {
   }
 };
 
-// getall blogs
+// getall blogs for one user
 
-const GetAllPosts = async (req, res) => {
+const getAllSingleUserPosts = async (req, res) => {
   const { userID } = req.body;
 
   if (!userID)
@@ -56,7 +56,6 @@ const GetAllPosts = async (req, res) => {
 };
 
 const deletePost = async (req, res) => {
-  console.log(req.body);
   const { id } = req.body;
   if (!id)
     return res.json({
@@ -72,9 +71,20 @@ const deletePost = async (req, res) => {
   });
 };
 
+// get Public
+
+const GetPublicPosts = async (req, res) => {
+  const allBlogs = await Post.find();
+
+  return res.json({
+    ok: true,
+    message: "All public posts are getted ",
+  });
+};
+
 const CRUD = {
-  CreatePost,
-  GetAllPosts,
+  createPost,
+  getAllSingleUserPosts,
   deletePost,
 };
 
