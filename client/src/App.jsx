@@ -13,6 +13,8 @@ import {
   SinglePost,
 } from "./Components/User/index";
 
+import { AllPublicPosts } from "./Components/Public/index";
+
 function App() {
   const [user, setUser] = useState({});
   const providervalue = useMemo(() => ({ user, setUser }), [user, setUser]);
@@ -41,6 +43,9 @@ function App() {
             </Route>
             <Route path={`/blog/:user/allposts`} exact>
               <AllPosts single={setSingleBlog} />
+            </Route>
+            <Route path={`/blog/public/posts/allposts`} exact>
+              <AllPublicPosts />
             </Route>
             <Route path={`/blog/:user/post/:id`} exact>
               <SinglePost single={singleBlog} />
